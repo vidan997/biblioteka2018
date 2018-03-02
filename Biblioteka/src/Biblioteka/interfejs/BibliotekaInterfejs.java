@@ -1,9 +1,9 @@
-package biblioteka.interfejs;
+package Biblioteka.interfejs;
 
 import java.util.LinkedList;
 
-import biblioteka.Autor;
-import biblioteka.Knjiga;
+import Biblioteka.Autor;
+import Biblioteka.Knjiga;
 
 public interface BibliotekaInterfejs {
 	

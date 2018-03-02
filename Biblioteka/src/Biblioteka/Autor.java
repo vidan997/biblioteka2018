@@ -1,4 +1,4 @@
-package biblioteka;
+package Biblioteka;
 
 public class Autor {
 	

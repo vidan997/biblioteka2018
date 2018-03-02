@@ -1,4 +1,4 @@
-package biblioteka;
+package Biblioteka;
 public class Knjiga {
 	
 	private String naslov, isbn, izdavac;
