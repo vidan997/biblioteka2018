@@ -4,17 +4,23 @@ import java.util.LinkedList;
 
 import Biblioteka.interfejs.BibliotekaInterfejs;
 
-public class Biblioteka implements BibliotekaInterfejs{
-	
+public class Biblioteka implements BibliotekaInterfejs {
+
 	LinkedList<Knjiga> knjige = new LinkedList<Knjiga>();
-	
-	
+
 	public void dodajKnjigu(Knjiga k) {
+		if (k == null || knjige.contains(k)) {
+			throw new RuntimeException("Knjiga je null ili vec postoji.");
+		}
+
 		knjige.add(k);
 	}
 
 	public void obrisiKnjigu(Knjiga k) {
-		knjige.remove(k);		
+		if (k == null || knjige.contains(k)) {
+			throw new RuntimeException("Knjiga je null ili ne postoji.");
+		}
+		knjige.remove(k);
 	}
 
 	public LinkedList<Knjiga> vratiSveKnjige() {
@@ -23,20 +29,19 @@ public class Biblioteka implements BibliotekaInterfejs{
 
 	public LinkedList<Knjiga> pronadjiKnjigu(Autor autor, String isbn, String naslov, String izdavac) {
 		if(naslov == null) {
-			return null;
+			throw new RuntimeException("Naslov ne sme biti NULL!");
 		}
+
 		
-		LinkedList<Knjiga>	novaLista = new LinkedList<Knjiga>();
-		
-		for(int i = 0; i < knjige.size() ; i++) {
-			if(knjige.get(i).getNaslov().contains(naslov)) {
+		LinkedList<Knjiga> novaLista = new LinkedList<Knjiga>();
+
+		for (int i = 0; i < knjige.size(); i++) {
+			if (knjige.get(i).getNaslov().contains(naslov)) {
 				novaLista.add(knjige.get(i));
 			}
 		}
-		
+
 		return novaLista;
 	}
-	
-	
 
 }
